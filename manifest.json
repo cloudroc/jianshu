@@ -1,0 +1,38 @@
+{
+	"manifest_version": 2,
+	//"background": {
+	//	"page": "background.html"
+	//},
+	"browser_action": {
+		"default_icon"  : "logo/Icon-48.png",
+		"default_title" : "简书",
+		"default_popup" : "popup.html"
+	},
+	"description": "和官网并没有关系，偶尔刷刷分~",
+	"icons": {
+		"128" : "logo/Icon-128.png",
+		"32"  : "logo/Icon-32.png",
+		"48"  : "logo/Icon-48.png",
+		"16"  : "logo/Icon-16.png"
+	},
+	"content_scripts": [
+		{
+			"matches" : ["*://www.jianshu.com/*"],
+			"css"      : ["css/layer.css"],
+			"js"      : ["js/jquery-1.7.2.min.js","js/layer.js","js/score.js"],
+			"all_frames" : true
+		}
+	],
+	"web_accessible_resources": ["logo/Icon-256.png"],
+	"name": "简书",
+	"short_name": "简书",
+	//"options_page": "options.html",
+	"permissions": [
+		"cookies", 
+		"tabs", 
+		"notifications",
+		"*://*.jianshu.com/*",
+		"*://*.jianshu.io/*"
+	],
+	"version": "1.0.0"
+}
